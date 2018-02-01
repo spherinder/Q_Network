@@ -5,7 +5,7 @@ import numpy as np
 env = gym.make("FrozenLake-v0")
 
 x = tf.placeholder(tf.float32, [1, env.observation_space.n])
-w = tf.Variable(tf.random_uniform([16,4]))
+w = tf.Variable(tf.random_normal([16, 4], mean=0.005,stddev=0.01))
 out = tf.matmul(x, w)
 
 target = tf.placeholder(tf.float32, [1, env.action_space.n])
